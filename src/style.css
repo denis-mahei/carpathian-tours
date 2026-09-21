@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Manrope';
+    src: url('./assets/fonts/Manrope-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('./assets/fonts/PlayfairDisplay-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color-light: #f7fbfb;
+    --color-primary: #1b1d1b;
+    --color-secondary: #202321;
+    --color-accent: #5b86a1;
+
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-manrope: 'Manrope', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
+    --font-gilroy: 'Gilroy', sans-serif;
+}
+
+body {
+    background-color: var(--color-light);
+    color: var(--color-secondary);
+    font-family: var(--font-montserrat);
+    font-size: 16px;
+}
+
+svg, img {
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1860px;
+    margin: 0 auto;
+    padding: 20px;
+}
