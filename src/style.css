@@ -5,6 +5,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Montserrat';
     src: url('./assets/fonts/Montserrat-Regular.woff2') format('woff2');
@@ -12,6 +13,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Montserrat';
     src: url('./assets/fonts/Montserrat-Medium.woff2') format('woff2');
@@ -19,6 +21,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Montserrat';
     src: url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2');
@@ -26,6 +29,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Manrope';
     src: url('./assets/fonts/Manrope-Regular.woff2') format('woff2');
@@ -33,6 +37,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Manrope';
     src: url('./assets/fonts/Manrope-Medium.woff2') format('woff2');
@@ -40,6 +45,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Manrope';
     src: url('./assets/fonts/Manrope-SemiBold.woff2') format('woff2');
@@ -47,6 +53,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: 'Playfair Display';
     src: url('./assets/fonts/PlayfairDisplay-Regular.woff2') format('woff2');
@@ -60,6 +67,8 @@
     --color-primary: #1b1d1b;
     --color-secondary: #202321;
     --color-accent: #5b86a1;
+    --color-accent-hover: #4a7189;
+    --color-overlay: rgba(32, 35, 33, 0.7);
 
     --font-montserrat: 'Montserrat', sans-serif;
     --font-manrope: 'Manrope', sans-serif;
@@ -74,39 +83,56 @@ body {
     font-size: 16px;
 }
 
-svg, img {
+body.is-scroll-locked {
+    overflow: hidden;
+}
+
+svg,
+img {
     display: block;
 }
+
 img {
     max-width: 100%;
 }
+
 button {
     display: block;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
+
 .container {
     width: 100%;
     max-width: 1860px;
     margin: 0 auto;
     padding: 0 32px;
 }
+.section.about-us {
+    padding-top: 52px;
+}
+.section {
+    padding-top: 26px;
+    padding-bottom: 26px;
+}
+
 .logo {
     width: 40px;
     height: 40px;
     color: var(--color-light);
 }
-.hero-img {
-    position: relative;
-    background-image: url('./assets/images/hero/hero_desk_1920.webp');
-    min-height: 100dvh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+
+/* ---------- Socials (shared block) ---------- */
+
+.socials {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 30px;
+    color: var(--color-light);
 }
+
+/* ---------- Header ---------- */
+
 .header {
     position: absolute;
     z-index: 999;
@@ -114,6 +140,7 @@ button {
     left: 0;
     right: 0;
 }
+
 .header__container {
     display: flex;
     justify-content: space-between;
@@ -122,14 +149,50 @@ button {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.header__burger {
+    padding: 12px 6px;
+    color: var(--color-light);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 100dvh;
+    padding-block: 120px 60px;
+    overflow: hidden;
+}
+
+.hero__media {
+    position: absolute;
+    inset: 0;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero__container {
+    position: relative;
+    z-index: 1;
+}
+
 .hero__title {
     font-size: 40px;
     font-weight: 400;
     text-align: center;
+    text-transform: uppercase;
     color: var(--color-light);
     margin-bottom: 60px;
 }
-.hero__sub-title {
+
+.hero__subtitle {
     color: var(--color-light);
     text-align: center;
     margin-bottom: 88px;
@@ -137,8 +200,243 @@ button {
 
 .hero__button {
     padding: 15px 91px;
-    background-color: var(--color-accent);
     margin: 0 auto;
-    text-transform: uppercase;
+    background-color: var(--color-accent);
     color: var(--color-light);
+    text-transform: uppercase;
+    transition: background-color 250ms ease-in-out;
+}
+
+.hero__button:hover,
+.hero__button:focus-visible {
+    background-color: var(--color-accent-hover);
+}
+
+/* ---------- Mobile menu ---------- */
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    background-image: url('./assets/images/hero/hero_mb.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+}
+
+.mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu__panel {
+    width: 60%;
+    min-width: 260px;
+    height: 100%;
+    padding: 20px 32px;
+    overflow-y: auto;
+    background-color: var(--color-overlay);
+}
+
+.mobile-menu__logo-link {
+    display: block;
+    margin-bottom: 78px;
+}
+
+.mobile-menu__nav {
+    margin-bottom: 64px;
+}
+
+.mobile-menu__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: var(--color-light);
+}
+
+.mobile-menu__link {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.mobile-menu__socials {
+    flex-direction: column;
+}
+
+.mobile-menu__close {
+    position: absolute;
+    top: 20px;
+    right: 32px;
+    padding: 10px;
+    color: var(--color-light);
+}
+
+.socials.hero-socials {
+    display: none;
+}
+
+.nav-header {
+    display: none;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 60px;
+}
+.about-us__text {
+    font-weight: 400;
+}
+.about-us__text:not(:last-child) {
+    margin-bottom: 10px;
+}
+.advantages-wrapper {
+    background-image: url('./assets/images/advantage/advantages_mb.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 554px;
+}
+.advantages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 87px 0;
+}
+
+.advantages-list__item {
+    background-color: var(--color-accent);
+    padding: 8px 30px;
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding: 40px 0;
+    }
+    .section.about-us {
+        padding-top: 80px;
+    }
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .hero {
+        padding-block: 180px 185px;
+    }
+
+    .hero__title {
+        font-size: 68px;
+        margin-bottom: 40px;
+    }
+
+    .hero__subtitle {
+        width: 470px;
+        margin-inline: auto;
+        margin-bottom: 60px;
+        font-size: 20px;
+    }
+
+    .mobile-menu {
+        background-image: url('./assets/images/hero/hero_tab_1412.webp');
+    }
+
+    .mobile-menu__logo-link {
+        margin-bottom: 97px;
+    }
+
+    .mobile-menu__nav {
+        margin-bottom: 80px;
+    }
+
+    .mobile-menu__socials {
+        flex-direction: row;
+    }
+
+    .hero__button {
+        font-size: 20px;
+        padding: 16px 123px;
+    }
+    .about-us__title {
+        font-size: 52px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .nav-header {
+        display: block;
+    }
+    .header__burger {
+        display: none;
+    }
+    .menu-list {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+    }
+    .menu-list__item__link {
+        position: relative;
+        font-size: 24px;
+        color: var(--color-light);
+        
+    }
+    .menu-list__item__link:hover::before {
+        width: 100%;
+    }
+    .menu-list__item__link::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: -5px;
+        height: 2px;
+        background-color: var(--color-light);
+        width: 0;
+        transition: width 300ms ease-in-out;
+    }
+    .hero__title {
+        font-size: 88px;
+    }
+
+    .hero__subtitle {
+        font-size: 28px;
+        width: 675px;
+    }
+
+    .buttons__block {
+        position: relative;
+    }
+
+    .socials.hero-socials {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        top: -2px;
+        right: 0;
+    }
+
+    .hero__button {
+        font-size: 24px;
+    }
+    .about-us__title {
+        font-size: 68px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container {
+        padding: 30px 135px;
+    }
+
+    .hero__button {
+        padding: 20px 199px;
+    }
 }

@@ -1,14 +1,44 @@
-<header class='header'>
+<header class="header">
     <div class="container header__container">
-        <a href="/">
-            <svg class='logo'>
+        <a class="header__logo-link" href="/" aria-label="Carpathian Tours — home">
+            <svg class="logo" aria-hidden="true">
                 <use href="/assets/icons/sprite.svg#logo"></use>
             </svg>
         </a>
-        <button>
-            <svg width="40" height="40">
+        <button
+                class="header__burger"
+                type="button"
+                aria-label="Open menu"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+                data-menu-open
+        >
+            <svg width="31" height="18" aria-hidden="true">
                 <use href="/assets/icons/sprite.svg#burger"></use>
             </svg>
         </button>
+        <nav class="nav-header">
+            <ul class="menu-list">
+                <li class="menu-list__item">
+                    <a class="menu-list__item__link" href="#">About us</a>
+                </li>
+                <li class="menu-list__item">
+                    <a class="menu-list__item__link" href="#">Tours</a>
+                </li>
+
+                <li class="menu-list__item">
+                    <a class="menu-list__item__link" href="#">Reviews</a>
+                </li>
+
+                <li class="menu-list__item">
+                    <a class="menu-list__item__link" href="#">Gallery</a>
+                </li>
+
+                <li class="menu-list__item">
+                    <a class="menu-list__item__link" href="#">Contacts</a>
+                </li>
+
+            </ul>
+        </nav>
     </div>
 </header>

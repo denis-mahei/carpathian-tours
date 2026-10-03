@@ -1,7 +1,57 @@
-<section class="hero-img">
-    <div class="container">
-        <h1 class="hero__title">TOURS TO THE CARPATHIANS FROM LVIV</h1>
-        <p class="hero__sub-title">Journeys to the very heart of the Carpathians for those who want a real reboot</p>
-        <button type="button" class="hero__button">book a tour</button>
+<section class="hero" id="hero">
+    <picture class="hero__media">
+        <source
+            media="(min-width: 1920px)"
+            srcset="
+                /assets/images/hero/hero_desk_1920.webp 1x,
+                /assets/images/hero/hero_desk_1920@2x.webp 2x
+            "
+        />
+        <source media="(min-width: 1440px)" srcset="/assets/images/hero/hero_desk_1440@2x.webp"/>
+        <source media="(min-width: 768px)" srcset="/assets/images/hero/hero_tab_1412.webp"/>
+        <img
+            class="hero__image"
+            src="/assets/images/hero/hero_mb.webp"
+            alt=""
+            width="1245"
+            height="818"
+            fetchpriority="high"
+            decoding="async"
+        />
+    </picture>
+
+    <div class="container hero__container">
+        <h1 class="hero__title">Tours to the Carpathians from Lviv</h1>
+        <p class="hero__subtitle">
+            Journeys to the very heart of the Carpathians for those who want a real reboot
+        </p>
+        <div class="buttons__block">
+            <button class="hero__button" type="button">Book a tour</button>
+
+            <ul class="socials hero-socials">
+                <li class="socials__item">
+                    <a class="socials__link" href="#" aria-label="Telegram">
+                        <svg class="socials__icon" width="34" height="34" aria-hidden="true">
+                            <use href="/assets/icons/sprite.svg#telegram"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socials__item">
+                    <a class="socials__link" href="#" aria-label="Instagram">
+                        <svg class="socials__icon" width="34" height="34" aria-hidden="true">
+                            <use href="/assets/icons/sprite.svg#instagram"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socials__item">
+                    <a class="socials__link" href="#" aria-label="Facebook">
+                        <svg class="socials__icon" width="34" height="34" aria-hidden="true">
+                            <use href="/assets/icons/sprite.svg#facebook"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </section>
